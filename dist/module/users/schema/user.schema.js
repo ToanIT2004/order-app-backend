@@ -1,12 +1,4 @@
 "use strict";
-exports.id = 0;
-exports.ids = null;
-exports.modules = {
-
-/***/ 13:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", ({ value: true }));
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserSchema = exports.User = void 0;
-const mongoose_1 = __webpack_require__(11);
-const mongooseDelete = __webpack_require__(14);
+const mongoose_1 = require("@nestjs/mongoose");
+const mongooseDelete = require("mongoose-delete");
 let User = class User {
 };
 exports.User = User;
@@ -56,25 +48,8 @@ exports.User = User = __decorate([
 ], User);
 const UserSchema = mongoose_1.SchemaFactory.createForClass(User);
 exports.UserSchema = UserSchema;
-UserSchema.plugin(mongooseDelete, { deletedAt: true, overrideMethods: "all" });
-
-
-/***/ }),
-
-/***/ 14:
-/***/ ((module) => {
-
-module.exports = require("mongoose-delete");
-
-/***/ })
-
-};
-exports.runtime =
-/******/ function(__webpack_require__) { // webpackRuntimeModules
-/******/ /* webpack/runtime/getFullHash */
-/******/ (() => {
-/******/ 	__webpack_require__.h = () => ("1914e4776c5ea448661c")
-/******/ })();
-/******/ 
-/******/ }
-;
+UserSchema.plugin(mongooseDelete, {
+    deletedAt: true,
+    overrideMethods: 'all'
+});
+//# sourceMappingURL=user.schema.js.map
