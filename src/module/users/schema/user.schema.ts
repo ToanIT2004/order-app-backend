@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import * as mongooseDelete from 'mongoose-delete';
+
 export type UserDocument = HydratedDocument<User>;
 
 @Schema({ timestamps: true })
@@ -26,8 +27,14 @@ export class User {
    @Prop()
    role: string;
 }
+
+// Tạo schema từ class User
 const UserSchema = SchemaFactory.createForClass(User);
 
-UserSchema.plugin(mongooseDelete, { deletedAt: true, overrideMethods: "all" });
+// Áp dụng plugin mongoose-delete cho UserSchema
+UserSchema.plugin(mongooseDelete, {
+   deletedAt: true,
+   overrideMethods: 'all'
+});
 
 export { UserSchema };
