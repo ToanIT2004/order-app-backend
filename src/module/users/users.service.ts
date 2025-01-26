@@ -81,6 +81,10 @@ export class UsersService {
     return `This action returns a #${id} user`;
   }
 
+  async findOneByUsername(username: string) {
+    return await this.userModel.findOne({ username })
+  }
+
   update(id: number, updateUserDto: UpdateUserDto) {
     return `This action updates a #${id} user`;
   }
@@ -88,4 +92,6 @@ export class UsersService {
   remove(id: number) {
     return `This action removes a #${id} user`;
   }
+
+
 }
