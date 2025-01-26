@@ -12,6 +12,9 @@ RUN npm install
 # Copy toàn bộ mã nguồn
 COPY . .
 
+# Đảm bảo quyền thực thi
+RUN chmod +x node_modules/.bin/nest
+
 # Build ứng dụng
 RUN npm run build
 
